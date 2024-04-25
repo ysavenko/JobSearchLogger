@@ -1,0 +1,6 @@
+2024-05-06 21:47:36.103185-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "JOB_CONTACT" not found (this database is empty); SQL statement:
+insert into job_contact (candidate,date,description,position_id,type,id) values (?,?,?,?,?,default) [42104-224]
+2024-05-06 21:48:57.400002-04:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "JOB_CONTACT" not found (this database is empty); SQL statement:
+insert into job_contact (candidate,date,description,position_id,type,id) values (?,?,?,?,?,default) [42104-224]
