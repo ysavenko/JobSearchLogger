@@ -46,6 +46,10 @@
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.giraffe.jsl</groupId>
 			<artifactId>jsl-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
