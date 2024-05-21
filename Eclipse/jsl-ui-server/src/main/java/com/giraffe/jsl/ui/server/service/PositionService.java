@@ -1,11 +1,10 @@
-package com.giraffe.jsl.ui.server.service.position;
+package com.giraffe.jsl.ui.server.service;
 
 import java.time.LocalDate;
 import java.util.Collection;
 
 import com.giraffe.jsl.ui.server.dto.DateRange;
 import com.giraffe.jsl.ui.server.dto.Position;
-import com.giraffe.jsl.ui.server.service.Service;
 
 public interface PositionService extends Service<Position>
 {

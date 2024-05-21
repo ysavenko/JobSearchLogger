@@ -1,11 +1,10 @@
-package com.giraffe.jsl.ui.server.service.jobcontact;
+package com.giraffe.jsl.ui.server.service;
 
 import java.util.Collection;
 
 import com.giraffe.jsl.ui.server.dto.DateRange;
 import com.giraffe.jsl.ui.server.dto.JobContact;
 import com.giraffe.jsl.ui.server.dto.Position;
-import com.giraffe.jsl.ui.server.service.Service;
 
 public interface JobContactService extends Service<JobContact>
 {

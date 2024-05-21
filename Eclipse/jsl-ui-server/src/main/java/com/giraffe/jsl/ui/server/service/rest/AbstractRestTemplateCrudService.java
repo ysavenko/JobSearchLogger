@@ -1,4 +1,4 @@
-package com.giraffe.jsl.ui.server.service;
+package com.giraffe.jsl.ui.server.service.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.giraffe.jsl.ui.server.service.Service;
 
 public abstract class AbstractRestTemplateCrudService<T> implements Service<T>
 {

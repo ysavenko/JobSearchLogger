@@ -1,6 +1,5 @@
-package com.giraffe.jsl.ui.server.service.jobcontact;
+package com.giraffe.jsl.ui.server.service.rest;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -14,17 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.giraffe.jsl.ui.server.data.Page;
 import com.giraffe.jsl.ui.server.dto.DateRange;
 import com.giraffe.jsl.ui.server.dto.JobContact;
 import com.giraffe.jsl.ui.server.dto.Position;
-import com.giraffe.jsl.ui.server.service.AbstractRestTemplateCrudService;
-import com.giraffe.jsl.ui.server.service.position.PositionService;
+import com.giraffe.jsl.ui.server.service.JobContactService;
+import com.giraffe.jsl.ui.server.service.PositionService;
 
-@Service
+//@Service
 public class JobContactServiceImpl extends AbstractRestTemplateCrudService<JobContact> implements JobContactService
 {
 
@@ -68,27 +66,6 @@ public class JobContactServiceImpl extends AbstractRestTemplateCrudService<JobCo
 	private String getUsername()
 	{
 		return SecurityContextHolder.getContext().getAuthentication().getName();
-	}
-
-	@Override
-	public void save(JobContact entity) throws Exception
-	{
-		if (entity.getCandidate() == null)
-		{
-			entity.setCandidate(getUsername());
-		}
-		// super.save(entity, new Object[0]);
-
-		try
-		{
-			StringWriter w = new StringWriter();
-			objectMapper.writeValue(w, entity);
-			kafkaTemplate.send("my-topic", w.toString());
-		}
-		catch (Exception e)
-		{
-			System.out.println("FAILED TO SEND KAFKA MESSAGE: " + e);
-		}
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.giraffe.jsl.ui.server.service.position;
+package com.giraffe.jsl.ui.server.service.rest;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.giraffe.jsl.ui.server.dto.Position;
-import com.giraffe.jsl.ui.server.service.AbstractRestTemplateCrudService;
+import com.giraffe.jsl.ui.server.service.PositionService;
 
 @Service
 public class PositionServiceImpl extends AbstractRestTemplateCrudService<Position> implements PositionService

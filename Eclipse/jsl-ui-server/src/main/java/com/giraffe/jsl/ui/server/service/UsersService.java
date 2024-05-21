@@ -1,7 +1,6 @@
-package com.giraffe.jsl.ui.server.service.users;
+package com.giraffe.jsl.ui.server.service;
 
 import com.giraffe.jsl.ui.server.dto.Users;
-import com.giraffe.jsl.ui.server.service.Service;
 
 public interface UsersService extends Service<Users>
 {

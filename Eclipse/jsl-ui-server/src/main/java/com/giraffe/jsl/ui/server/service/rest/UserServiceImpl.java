@@ -1,4 +1,4 @@
-package com.giraffe.jsl.ui.server.service.users;
+package com.giraffe.jsl.ui.server.service.rest;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.giraffe.jsl.ui.server.dto.Users;
-import com.giraffe.jsl.ui.server.service.AbstractRestTemplateCrudService;
+import com.giraffe.jsl.ui.server.service.UsersService;
 
 @Service
 public class UserServiceImpl extends AbstractRestTemplateCrudService<Users> implements UsersService
