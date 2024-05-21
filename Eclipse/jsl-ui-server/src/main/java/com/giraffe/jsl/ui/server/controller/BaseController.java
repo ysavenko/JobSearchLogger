@@ -92,7 +92,6 @@ public abstract class BaseController<T>
 	public String showEditForm(Model model, T entity) throws Exception
 	{
 		model.addAttribute("entity", entity);
-		
 		return viewLocation + "/add";
 	}
 

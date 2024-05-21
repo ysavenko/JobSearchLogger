@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.giraffe.jsl.ui.server.dto.JobContact;
-import com.giraffe.jsl.ui.server.service.jobcontact.JobContactService;
-import com.giraffe.jsl.ui.server.service.position.PositionService;
+import com.giraffe.jsl.ui.server.service.JobContactService;
+import com.giraffe.jsl.ui.server.service.PositionService;
 
 @Controller
 @RequestMapping({ "/", "/jobcontact" })

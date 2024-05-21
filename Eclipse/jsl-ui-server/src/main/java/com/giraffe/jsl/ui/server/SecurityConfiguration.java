@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.UserDetailsManager;
 
 import com.giraffe.jsl.ui.server.dto.Users;
-import com.giraffe.jsl.ui.server.service.users.UsersService;
+import com.giraffe.jsl.ui.server.service.UsersService;
 
 @Configuration
 @EnableWebSecurity
