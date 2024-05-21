@@ -1,4 +1,8 @@
 call .bld.setup.bat
+
+set JSL_NETWORK_NAME=JSL_NETWORK
+docker network create %JSL_NETWORK_NAME%
+
 for /f "delims=" %%x in ('dir /b /ad') do (
   if exist "%%x\Dockerfile" (
     docker stop %%x
@@ -23,8 +27,8 @@ for /f "delims=" %%x in ('dir /b /ad') do (
     if NOT "!PORT_MAPPING!"=="" (set PORT_MAPPING=-p !PORT_MAPPING!:!EXPOSE_PORT!) 
 
     docker build -f %%x/Dockerfile --build-arg ARG_JAR_FILE=%%x/target/%%x-%ver%.jar !BUILD_ARGS! -t %%x .
-    docker run !PORT_MAPPING! --mount type=volume,src=%%x,target=//etc/myData -d --name %%x --rm %%x
-    docker network connect myNetwork %%x
+    docker run !PORT_MAPPING! --network=%JSL_NETWORK_NAME% --mount type=volume,src=%%x,target=//etc/myData -d --name %%x --rm %%x
+    rem docker network connect %JSL_NETWORK_NAME% %%x
     setlocal disableDelayedExpansion
   )
 )
