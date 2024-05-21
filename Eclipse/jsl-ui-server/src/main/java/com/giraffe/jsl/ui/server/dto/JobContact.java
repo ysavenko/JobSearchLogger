@@ -5,33 +5,58 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@EqualsAndHashCode
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Builder
 public class JobContact
 {
 
-	private LocalDate date;
-
+	@Getter
+	@Setter
 	private Long id;
 
+	@Getter
+	@Setter
 	private String candidate;
 
+	@Getter
+	@Setter
 	private String type;
 
-	@JsonIgnore
-	private String company;
-
-	private Long positionId;
-
-	@JsonIgnore
-	private String position;
-
+	@Getter
+	@Setter
 	private String description;
 
+	@Getter
+	@Setter
+	private Long positionId;
+
+	@Getter
+	@Setter
+	private LocalDate date;
+
+	@JsonIgnore
+	@Getter
+	@Setter
+	private String position;
+
+	@JsonIgnore
+	@Getter
+	@Setter
+	private String company;
+
+	@JsonIgnore
+	@Getter
+	@Setter
 	private String positionDescription;
 
 }

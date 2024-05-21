@@ -19,7 +19,7 @@ public interface JobContactService extends Service<JobContact>
 	{
 		return getById(id, JobContact::getId);
 	}
-	
+
 	default Collection<String> getTypes() throws Exception
 	{
 		return getAll().stream().map(j -> j.getType()).distinct().toList();

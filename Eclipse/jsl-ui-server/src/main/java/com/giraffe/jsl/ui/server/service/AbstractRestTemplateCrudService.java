@@ -16,7 +16,8 @@ public abstract class AbstractRestTemplateCrudService<T> implements Service<T>
 	private final String saveUrl;
 	private final String deleteUrl;
 
-	private final ObjectMapper objectMapper;
+	@Autowired
+	protected ObjectMapper objectMapper;
 
 	@Autowired
 	private RestTemplate restTemplate;

@@ -1,5 +1,6 @@
 package com.giraffe.jsl.ui.server.service.jobcontact;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,10 @@ import com.giraffe.jsl.ui.server.service.position.PositionService;
 @Service
 public class JobContactServiceImpl extends AbstractRestTemplateCrudService<JobContact> implements JobContactService
 {
+
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
+
 	@Autowired
 	public PositionService positionService;
 
@@ -71,7 +77,18 @@ public class JobContactServiceImpl extends AbstractRestTemplateCrudService<JobCo
 		{
 			entity.setCandidate(getUsername());
 		}
-		super.save(entity, new Object[0]);
+		// super.save(entity, new Object[0]);
+
+		try
+		{
+			StringWriter w = new StringWriter();
+			objectMapper.writeValue(w, entity);
+			kafkaTemplate.send("my-topic", w.toString());
+		}
+		catch (Exception e)
+		{
+			System.out.println("FAILED TO SEND KAFKA MESSAGE: " + e);
+		}
 	}
 
 	@Override

@@ -15,8 +15,7 @@ import com.giraffe.jsl.ui.server.service.jobcontact.JobContactService;
 import com.giraffe.jsl.ui.server.service.position.PositionService;
 
 @Controller
-@RequestMapping(
-{ "/", "/jobcontact" })
+@RequestMapping({ "/", "/jobcontact" })
 public class JobContactController extends BaseController<JobContact>
 {
 

@@ -1,6 +1,7 @@
 package com.giraffe.jsl.jobcontact;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,27 +45,18 @@ public class JslJobContactApplication extends JslCoreApplication
 
 	private static void add(String type, String description, int daysAgo)
 	{
-		try
-		{
-			jobContactService
-					.add(new JobContact(null, "John", type, description, 3L, LocalDate.now().minusDays(daysAgo)));
-		} catch (Exception e)
-		{
-			System.out.println(e);
-		}
+		jobContactService.add(JobContact.builder()
+				.candidate("John").type(type)
+				.description(description)
+				.positionId(3L)
+				.date(LocalDate.now().minusDays(daysAgo)).build());
 	}
 
 	private static void addUsers(String... names)
 	{
-		try
-		{
-			for (String name : names)
-			{
-				userService.add(new Users(null, name, "123", 'Y'));
-			}
-		} catch (Exception e)
-		{
-			System.out.println(e);
-		}
+		Arrays.stream(names)
+				.map(name -> Users.builder().username(name).password("123").enabled('Y').build())
+				.forEach(user -> userService.add(user));
+
 	}
 }
